@@ -3,14 +3,6 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-# users/models.py
-from django.db import models
-from cryptography.fernet import Fernet
-from django.contrib.auth.models import AbstractUser
-# Generate a key for encryption (store this securely, such as in environment variables)
-key = Fernet.generate_key()
-cipher_suite = Fernet(key)
-
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
