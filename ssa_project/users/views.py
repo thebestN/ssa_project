@@ -18,7 +18,6 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 
-
 # Set up logger
 logger = logging.getLogger(__name__)
 
@@ -123,3 +122,4 @@ def logout_view(request):
     logout(request)
     messages.success(request, "Successfully logged out.")
     return redirect('users:login')
+
